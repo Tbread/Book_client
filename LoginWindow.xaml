@@ -7,7 +7,7 @@
                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:Book"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="600" Width="800">
+        Title="LoginWindow" Height="400" Width="600">
     <mah:MetroWindow.LeftWindowCommands>
         <mah:WindowCommands>
             <Button Click="LaunchGitHub" ToolTip="GitHub">
@@ -18,6 +18,24 @@
         </mah:WindowCommands>
     </mah:MetroWindow.LeftWindowCommands>
     <Grid>
-        
+        <Grid.Clip>
+            <RectangleGeometry Rect="0,0,800,384"/>
+        </Grid.Clip>
+        <TextBlock HorizontalAlignment="Left" Margin="288,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="112" Width="296" FontSize="80" FontFamily="Maplestory"><Run Language="ko-kr" Text="로그인" Foreground="{DynamicResource MahApps.Brushes.Accent2}"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="431" VerticalAlignment="Top" Width="467" RenderTransformOrigin="1,1" Fill="{DynamicResource MahApps.Brushes.Accent2}" Margin="-195,-45,0,0">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-10.435"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <TextBox x:Name="usernameBox" HorizontalAlignment="Left" Margin="288,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="212" Height="28"/>
+        <Button x:Name="signInButton" Content="로그인" FontSize="10" HorizontalAlignment="Left" Margin="518,161,0,0" VerticalAlignment="Top" Height="59" Width="48" Click="SignIn_Click" FontFamily="Maplestory"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="288,193,0,0" VerticalAlignment="Top" Width="212"/>
+        <TextBlock x:Name="signUpButton"  HorizontalAlignment="Left" Margin="290,230,0,0" TextWrapping="Wrap" Text="회원가입" VerticalAlignment="Top" Foreground="{DynamicResource MahApps.Brushes.Badged.Background}" TextDecorations="Underline"/>
+        <TextBlock x:Name="forgotPasswordButton"  HorizontalAlignment="Left" Margin="350,230,0,0" TextWrapping="Wrap" Text="비밀번호 찾기" VerticalAlignment="Top" Foreground="{DynamicResource MahApps.Brushes.Badged.Background}" TextDecorations="Underline"/>
     </Grid>
 </mah:MetroWindow>

@@ -15,12 +15,14 @@ namespace Book
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            this.ShutdownMode = ShutdownMode.OnExplicitShutdown;
             base.OnStartup(e);
             LoginWindow login = new LoginWindow();
             bool? result = login.ShowDialog();
             if (result == true)
             {
                 MainWindow main = new MainWindow();
+                main.Closed += (s, args) => Application.Current.Shutdown();
                 main.Show();
             }
             else

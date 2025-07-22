@@ -11,6 +11,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Book.dto;
+using Book.dto.request;
+using Book.dto.response;
+using MahApps.Metro.Controls.Dialogs;
+using Newtonsoft.Json;
 
 namespace Book
 {
@@ -27,6 +32,28 @@ namespace Book
         private void LaunchGitHub(object sender, RoutedEventArgs e)
         {
             App.LaunchGitHub();
+        }
+
+        private async void SignIn_Click(object sender, RoutedEventArgs e)
+        {
+            string username = usernameBox.Text;
+            string password = passwordBox.Password;
+            UsernameAndPassword request  = new UsernameAndPassword();
+            request.username = username;
+            request.password = password;
+
+            Result uncompletedRes = await SimpleHttpRequest.PostRequest("/api/v1/user/signin", null, request, null);
+            if (!uncompletedRes.success)
+            {
+                await this.ShowMessageAsync("알림", "로그인에 실패했습니다.");
+            }
+            //추후 컨테이너에 jwt 저장 로직 작성
+
+            if (uncompletedRes.success)
+            {
+                this.DialogResult = true;
+                this.Close();
+            }   
         }
     }
 }
