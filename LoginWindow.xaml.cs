@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -41,8 +42,7 @@ namespace Book
             UsernameAndPassword request  = new UsernameAndPassword();
             request.username = username;
             request.password = password;
-
-            Result uncompletedRes = await SimpleHttpRequest.PostRequest("/api/v1/user/signin", null, request, null);
+            Result uncompletedRes = await SimpleHttpRequest.Instance.PostRequest("/api/v1/user/signin", null, request);
             if (!uncompletedRes.success)
             {
                 await this.ShowMessageAsync("알림", "로그인에 실패했습니다.");
@@ -51,8 +51,6 @@ namespace Book
 
             if (uncompletedRes.success)
             {
-                TokenPackage tokenPackage = uncompletedRes.data.ToObject<TokenPackage>();
-                await this.ShowMessageAsync("디버그", "accessToken: " + tokenPackage.accessToken + "\nrefreshToken: " + tokenPackage.refreshToken);
                 this.DialogResult = true;
                 this.Close();
             }   
