@@ -51,6 +51,8 @@ namespace Book
 
             if (uncompletedRes.success)
             {
+                TokenPackage tokenPackage = uncompletedRes.data.ToObject<TokenPackage>();
+                await this.ShowMessageAsync("디버그", "accessToken: " + tokenPackage.accessToken + "\nrefreshToken: " + tokenPackage.refreshToken);
                 this.DialogResult = true;
                 this.Close();
             }   
