@@ -48,6 +48,29 @@ namespace Book
             }
         }
 
+        public async Task<Result> GetRequest(string uri, Dictionary<string, string> headers)
+        {
+            using (HttpClientHandler handler = new HttpClientHandler()
+            {
+                CookieContainer = cookieContainer,
+                UseCookies = true
+            })
+            using (HttpClient client = new HttpClient(handler))
+            {
+                if (headers != null)
+                {
+                    foreach (KeyValuePair<string, string> items in headers)
+                    {
+                        client.DefaultRequestHeaders.Add(items.Key, items.Value);
+                    }
+                }
+                var res = await client.GetAsync(url+uri);
+                Result parsedResult = JsonConvert.DeserializeObject<Result>(await res.Content.ReadAsStringAsync());
+                onDestroyRequest();
+                return parsedResult;
+            }
+        }
+
         private void onDestroyRequest()
         {
             TokenPackage tokenPackage = new TokenPackage();
@@ -66,3 +89,4 @@ namespace Book
         }
     }
 }
+//todo: 401의 경우 클라이언트 로그아웃시키기

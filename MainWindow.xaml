@@ -23,9 +23,36 @@
     <Grid>
         <mah:MetroAnimatedSingleRowTabControl>
             <TabItem Header="도서관리" FontFamily="Maplestory">
-                <Grid Background="#FFE5E5E5">
-                    <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,0,25" SelectionChanged="DataGrid_SelectionChanged"/>
+                <Grid Background="#FFffffff">
+                    <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="5" SelectedIndex="0">
+                        <ComboBoxItem Name="item1" Content="제목"/>
+                        <ComboBoxItem Name="item2" Content="저자"/>
+                        <ComboBoxItem Name="item3" Content="출판사"/>
+                        <ComboBoxItem Name="item4" Content="ISBN"/>
+                        <ComboBoxItem Name="item5" Content="ISNI"/>
+                        <ComboBoxItem Name="item6" Content="시리즈명"/>
+                    </ComboBox>
+                    <DataGrid x:Name="BookDataGrid" AutoGenerateColumns="False" d:ItemsSource="{Binding BookList}" Margin="0,56,0,25">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="도서ID" Binding="{Binding bookId}"/>
+                            <DataGridTextColumn Header="도서명" Binding="{Binding title}"/>
+                            <DataGridTextColumn Header="저자" Binding="{Binding author}"/>
+                            <DataGridTextColumn Header="출판사" Binding="{Binding publisher}"/>
+                            <DataGridTextColumn Header="분류" Binding="{Binding classificationNumber}"/>
+                            <DataGridTextColumn Header="시리즈ID" Binding="{Binding seriesId}"/>
+                            <DataGridTextColumn Header="시리즈명" Binding="{Binding seriesName}"/>
+                            <DataGridTextColumn Header="권" Binding="{Binding ver}"/>
+                            <DataGridTextColumn Header="ISBN" Binding="{Binding isbn}"/>
+                            <DataGridTextColumn Header="ISNI" Binding="{Binding isni}"/>
+                            <DataGridTextColumn Header="시리즈" Binding="{Binding isSeries}"/>
+                            <DataGridTextColumn Header="비활성" Binding="{Binding discard}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                     <Button FontFamily="Maplestory" Content="도서추가" HorizontalAlignment="Left" Margin="0,404,0,0" VerticalAlignment="Top" Width="105" Height="12" Click="Button_Click"/>
+                    <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+                    <mah:ToggleSwitch FontFamily="Maplestory" Height="30" Margin="0,26,0,0" VerticalAlignment="Top" Width="100" OffContent="모두" OnContent="시리즈만"/>
+                    <mah:ToggleSwitch FontFamily="Maplestory" Height="30" Margin="120,26,0,0" VerticalAlignment="Top" Width="100" OffContent="모두" OnContent="비활성만"/>
+                    <Button FontFamily="Maplestory" Content="검색" HorizontalAlignment="Left" Margin="403,0,0,0" VerticalAlignment="Top" Width="51"/>
                 </Grid>
             </TabItem>
             <TabItem Header="대출관리" FontFamily="Maplestory">

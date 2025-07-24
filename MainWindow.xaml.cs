@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Book.dto;
+using Book.dto.response;
 using MahApps.Metro.Controls;
 
 namespace Book
@@ -21,11 +24,23 @@ namespace Book
     /// </summary>
     public partial class MainWindow
     {
+
+        public ObservableCollection<BookData> books { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            this.Closing += (s, e) => Console.WriteLine("MainWindow is closing");
-            this.Loaded += (s, e) => Console.WriteLine("MainWindow loaded");
+            initializeDataGrid();
+        }
+
+        private async void initializeDataGrid()
+        {
+            Result uncompletedRes = await SimpleHttpRequest.Instance.GetRequest("/api/v1/book/search?condition=TITLE&onlySeries=false&onlyDiscard=false", null);
+            if (uncompletedRes.success)
+            {
+                List<BookData> bookList = uncompletedRes.data.ToObject<List<BookData>>();
+                books = new ObservableCollection<BookData>(bookList);
+                BookDataGrid.ItemsSource = books;
+            }
         }
 
         private void LaunchGitHub(object sender, RoutedEventArgs e)
