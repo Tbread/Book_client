@@ -33,7 +33,6 @@ namespace Book
             })
             using (HttpClient client = new HttpClient(handler))
             {
-                client.DefaultRequestHeaders.Add("Content-Type", "application/json");
                 if (headers != null)
                 { 
                     foreach (KeyValuePair<string, string> items in headers)
@@ -41,7 +40,8 @@ namespace Book
                         client.DefaultRequestHeaders.Add(items.Key, items.Value);
                     }
                 }
-                var res = await client.PostAsync(url + uri, new StringContent(JsonConvert.SerializeObject(contents)));
+                StringContent content = new StringContent(JsonConvert.SerializeObject(contents));
+                var res = await client.PostAsync(url + uri, new StringContent(JsonConvert.SerializeObject(contents),Encoding.UTF8,"application/json"));
                 Result parsedResult = JsonConvert.DeserializeObject<Result>(await res.Content.ReadAsStringAsync());
                 onDestroyRequest();
                 return parsedResult;
