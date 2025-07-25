@@ -33,7 +33,7 @@ namespace Book
             })
             using (HttpClient client = new HttpClient(handler))
             {
-                client.DefaultRequestHeaders.Add("Contents-Type", "application/json");
+                client.DefaultRequestHeaders.Add("Content-Type", "application/json");
                 if (headers != null)
                 { 
                     foreach (KeyValuePair<string, string> items in headers)
