@@ -9,9 +9,9 @@ namespace Book.dto.request
 {
     public class SignUpRequest
     {
-        public string username;
-        public string password;
-        public string ci;
+        public string username { get; set; }
+        public string password { get; set; }
+        public string ci {  get; set; }
 
         public SignUpRequest(string username, string password)
         {
