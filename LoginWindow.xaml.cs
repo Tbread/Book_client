@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -42,18 +44,34 @@ namespace Book
             UsernameAndPassword request  = new UsernameAndPassword();
             request.username = username;
             request.password = password;
-            Result uncompletedRes = await SimpleHttpRequest.Instance.PostRequest("/api/v1/user/signin", null, request);
-            if (!uncompletedRes.success)
+            try
             {
-                await this.ShowMessageAsync("알림", "로그인에 실패했습니다.");
+                Result uncompletedRes = await SimpleHttpRequest.Instance.PostRequest("/api/v1/user/signin", null, request);
+                if (!uncompletedRes.success)
+                {
+                    await this.ShowMessageAsync("알림", "로그인에 실패했습니다.");
+                }
+                if (uncompletedRes.success)
+                {
+                    this.DialogResult = true;
+                    this.Close();
+                }
             }
-            //추후 컨테이너에 jwt 저장 로직 작성
-
-            if (uncompletedRes.success)
+            catch (HttpRequestException ex)
             {
-                this.DialogResult = true;
-                this.Close();
-            }   
+                await this.ShowMessageAsync("알림", "서버와의 연결에 실패했습니다.");
+            }
+        }
+
+        private void SignUp_Click(object sender, MouseButtonEventArgs e)
+        {
+            SignUpWindow signUpWindow = new SignUpWindow()
+            {
+                Title = "회원가입",
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
+            };
+            signUpWindow.ShowDialog();
         }
     }
-}
+ }

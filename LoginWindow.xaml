@@ -35,7 +35,8 @@
         <TextBox x:Name="usernameBox" HorizontalAlignment="Left" Margin="288,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="212" Height="28"/>
         <Button x:Name="signInButton" Content="로그인" FontSize="10" HorizontalAlignment="Left" Margin="518,161,0,0" VerticalAlignment="Top" Height="59" Width="48" Click="SignIn_Click" FontFamily="Maplestory"/>
         <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="288,193,0,0" VerticalAlignment="Top" Width="212"/>
-        <TextBlock x:Name="signUpButton"  HorizontalAlignment="Left" Margin="290,230,0,0" TextWrapping="Wrap" Text="회원가입" VerticalAlignment="Top" Foreground="{DynamicResource MahApps.Brushes.Badged.Background}" TextDecorations="Underline"/>
+        <TextBlock MouseLeftButtonDown="SignUp_Click" x:Name="signUpButton"  HorizontalAlignment="Left" Margin="290,230,0,0" TextWrapping="Wrap" Text="회원가입" VerticalAlignment="Top" Foreground="{DynamicResource MahApps.Brushes.Badged.Background}" TextDecorations="Underline"/>
         <TextBlock x:Name="forgotPasswordButton"  HorizontalAlignment="Left" Margin="350,230,0,0" TextWrapping="Wrap" Text="비밀번호 찾기" VerticalAlignment="Top" Foreground="{DynamicResource MahApps.Brushes.Badged.Background}" TextDecorations="Underline"/>
     </Grid>
+
 </mah:MetroWindow>
