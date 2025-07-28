@@ -73,5 +73,16 @@ namespace Book
             };
             signUpWindow.ShowDialog();
         }
+
+        private void PasswordReset_Click(object sender,MouseButtonEventArgs e)
+        {
+            PasswordResetWindow passwordResetWindow = new PasswordResetWindow()
+            {
+                Title = "패스워드 변경",
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center
+            };
+            passwordResetWindow.ShowDialog();
+        }
     }
  }
