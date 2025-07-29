@@ -185,6 +185,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="dto\request\NewBookRequest.cs" />
     <Compile Include="dto\request\PasswordResetRequest.cs" />
     <Compile Include="dto\request\SignUpRequest.cs" />
     <Compile Include="dto\response\BookData.cs" />
