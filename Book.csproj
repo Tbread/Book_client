@@ -189,6 +189,9 @@
     <Compile Include="dto\request\SignUpRequest.cs" />
     <Compile Include="dto\response\BookData.cs" />
     <Compile Include="enums\KDC.cs" />
+    <Compile Include="NewBookWindow.xaml.cs">
+      <DependentUpon>NewBookWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PasswordResetWindow.xaml.cs">
       <DependentUpon>PasswordResetWindow.xaml</DependentUpon>
     </Compile>
@@ -220,6 +223,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewBookWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PasswordResetWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

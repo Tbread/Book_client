@@ -51,11 +51,6 @@ namespace Book
             App.LaunchGitHub();
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private async void Search_Click(object sender, RoutedEventArgs e)
         {
             Result uncompletedRes = await SimpleHttpRequest.Instance.GetRequest("/api/v1/book/search?condition="
@@ -73,6 +68,15 @@ namespace Book
                     books.Add(book);
                 }
             }
+        }
+
+        private void NewBook_Click(object sender, RoutedEventArgs e)
+        {
+            NewBookWindow window = new NewBookWindow()
+            {
+                Title = "새 책 추가"
+            };
+            window.ShowDialog();
         }
     }
 }

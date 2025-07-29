@@ -48,7 +48,7 @@
                             <DataGridTextColumn Header="비활성" Binding="{Binding discard}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button FontFamily="Maplestory" Content="도서추가" HorizontalAlignment="Left" Margin="0,404,0,0" VerticalAlignment="Top" Width="105" Height="12"/>
+                    <Button Click="NewBook_Click" FontFamily="Maplestory" Content="도서추가" HorizontalAlignment="Left" Margin="0,404,0,0" VerticalAlignment="Top" Width="105" Height="12"/>
                     <TextBox x:Name="keyword"  HorizontalAlignment="Left" Margin="100,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
                     <mah:ToggleSwitch FontFamily="Maplestory" Height="30" Margin="0,26,0,0" VerticalAlignment="Top" Width="100" OffContent="모두" OnContent="시리즈만"/>
                     <mah:ToggleSwitch FontFamily="Maplestory" Height="30" Margin="120,26,0,0" VerticalAlignment="Top" Width="100" OffContent="모두" OnContent="비활성만"/>
