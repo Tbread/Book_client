@@ -29,5 +29,18 @@ namespace Book.dto.request
             this.isSeries = isSeries;
             this.seriesId = seriesId;
         }
+
+        public bool isValid()
+        {
+            if (isSeries && seriesId == null)
+            {
+                return false;
+            }
+            if (!isSeries && seriesId != null)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
