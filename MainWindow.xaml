@@ -24,13 +24,13 @@
         <mah:MetroAnimatedSingleRowTabControl>
             <TabItem Header="도서관리" FontFamily="Maplestory">
                 <Grid Background="#FFffffff">
-                    <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="5" SelectedIndex="0">
-                        <ComboBoxItem Name="item1" Content="제목"/>
-                        <ComboBoxItem Name="item2" Content="저자"/>
-                        <ComboBoxItem Name="item3" Content="출판사"/>
-                        <ComboBoxItem Name="item4" Content="ISBN"/>
-                        <ComboBoxItem Name="item5" Content="ISNI"/>
-                        <ComboBoxItem Name="item6" Content="시리즈명"/>
+                    <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="5" SelectedIndex="0" x:Name="SearchCondition" SelectedValuePath="Tag">
+                        <ComboBoxItem Name="item1" Content="제목" Tag="TITLE"/>
+                        <ComboBoxItem Name="item2" Content="저자" Tag="AUTHOR"/>
+                        <ComboBoxItem Name="item3" Content="출판사" Tag="PUBLISHER"/>
+                        <ComboBoxItem Name="item4" Content="ISBN" Tag="ISBN"/>
+                        <ComboBoxItem Name="item5" Content="ISNI" Tag="ISNI"/>
+                        <ComboBoxItem Name="item6" Content="시리즈명" Tag="SERIES_NAME"/>
                     </ComboBox>
                     <DataGrid x:Name="BookDataGrid" AutoGenerateColumns="False" d:ItemsSource="{Binding BookList}" Margin="0,56,0,25">
                         <DataGrid.Columns>
@@ -48,11 +48,11 @@
                             <DataGridTextColumn Header="비활성" Binding="{Binding discard}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button FontFamily="Maplestory" Content="도서추가" HorizontalAlignment="Left" Margin="0,404,0,0" VerticalAlignment="Top" Width="105" Height="12" Click="Button_Click"/>
-                    <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
+                    <Button FontFamily="Maplestory" Content="도서추가" HorizontalAlignment="Left" Margin="0,404,0,0" VerticalAlignment="Top" Width="105" Height="12"/>
+                    <TextBox x:Name="keyword"  HorizontalAlignment="Left" Margin="100,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300"/>
                     <mah:ToggleSwitch FontFamily="Maplestory" Height="30" Margin="0,26,0,0" VerticalAlignment="Top" Width="100" OffContent="모두" OnContent="시리즈만"/>
                     <mah:ToggleSwitch FontFamily="Maplestory" Height="30" Margin="120,26,0,0" VerticalAlignment="Top" Width="100" OffContent="모두" OnContent="비활성만"/>
-                    <Button FontFamily="Maplestory" Content="검색" HorizontalAlignment="Left" Margin="403,0,0,0" VerticalAlignment="Top" Width="51"/>
+                    <Button Click="Search_Click" FontFamily="Maplestory" Content="검색" HorizontalAlignment="Left" Margin="403,0,0,0" VerticalAlignment="Top" Width="51"/>
                 </Grid>
             </TabItem>
             <TabItem Header="대출관리" FontFamily="Maplestory">

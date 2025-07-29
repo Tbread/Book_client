@@ -32,6 +32,9 @@ namespace Book
             initializeDataGrid();
         }
 
+        private bool onlySeries = false;
+        private bool onlyDiscard = false;
+
         private async void initializeDataGrid()
         {
             Result uncompletedRes = await SimpleHttpRequest.Instance.GetRequest("/api/v1/book/search?condition=TITLE&onlySeries=false&onlyDiscard=false", null);
@@ -53,9 +56,23 @@ namespace Book
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Search_Click(object sender, RoutedEventArgs e)
         {
-
+            Result uncompletedRes = await SimpleHttpRequest.Instance.GetRequest("/api/v1/book/search?condition="
+                + SearchCondition.SelectedValue as string
+                + "&onlySeries="+onlySeries
+                +"&onlyDiscard="+onlyDiscard
+                +"&keyword="+keyword.Text,
+                null);
+            if (uncompletedRes.success)
+            {
+                List<BookData> bookList = uncompletedRes.data.ToObject<List<BookData>>();
+                books.Clear();
+                foreach (BookData book in bookList)
+                {
+                    books.Add(book);
+                }
+            }
         }
     }
 }
