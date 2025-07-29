@@ -15,7 +15,7 @@ namespace Book.dto.response
         public string author { get; set; }
         public string publisher { get; set; }
         public KDC classificationNumber { get; set; }
-        public bool isSeries { get; set; }
+        public bool series { get; set; }
         public int ver { get; set; }
         public bool discard { get; set; }
         public string isbn { get; set; }

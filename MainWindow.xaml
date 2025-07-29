@@ -44,7 +44,7 @@
                             <DataGridTextColumn Header="권" Binding="{Binding ver}"/>
                             <DataGridTextColumn Header="ISBN" Binding="{Binding isbn}"/>
                             <DataGridTextColumn Header="ISNI" Binding="{Binding isni}"/>
-                            <DataGridTextColumn Header="시리즈" Binding="{Binding isSeries}"/>
+                            <DataGridTextColumn Header="시리즈" Binding="{Binding series}"/>
                             <DataGridTextColumn Header="비활성" Binding="{Binding discard}"/>
                         </DataGrid.Columns>
                     </DataGrid>
