@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Book.dto;
+using MahApps.Metro.Controls;
 
 namespace Book
 {
@@ -26,12 +28,29 @@ namespace Book
 
         private void ToggleSeries(object sender, RoutedEventArgs e)
         {
-            
+            ToggleSwitch toggle = sender as ToggleSwitch;
+            if (toggle != null)
+            {
+                if (toggle.IsOn)
+                {
+                    seriesIdBox.Visibility = Visibility.Visible;
+                    seriesIdLabel.Visibility = Visibility.Visible;
+                    //todo: 시리즈검색 다이얼로그 띄우고 id리턴받아넣기
+                    SearchSeriesWindow searchSeries = new SearchSeriesWindow();
+                    searchSeries.ShowDialog();
+                }
+                else
+                {
+                    seriesIdBox.Visibility = Visibility.Hidden;
+                    seriesIdLabel.Visibility = Visibility.Hidden;
+                }
+            }
         }
+
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
-
+            long? seriesId = (seriesIdBox.Visibility == Visibility.Visible) ? (long?)long.Parse(seriesIdBox.Text) : null;
         }
     }
 }

@@ -32,10 +32,10 @@
             <ComboBoxItem Name="item9" Content="문학" Tag="LITERATURE"/>
             <ComboBoxItem Name="item10" Content="역사" Tag="HISTORY"/>
         </ComboBox>
-        <mah:ToggleSwitch FontFamily="Maplestory" Height="34" Margin="76,118,0,0" VerticalAlignment="Top" Width="100" Toggled="ToggleSeries"/>
+        <mah:ToggleSwitch x:Name="seriesToggle" FontFamily="Maplestory" Height="34" Margin="76,118,0,0" VerticalAlignment="Top" Width="100" Toggled="ToggleSeries"/>
         <TextBlock Text="시리즈" FontFamily="Maplestory" HorizontalAlignment="Left" Margin="40,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox IsEnabled="False" x:Name="seriesId" mah:TextBoxHelper.Watermark="시리즈ID" HorizontalAlignment="Left" Margin="98,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19"/>
-        <TextBlock Text="시리즈 ID" FontFamily="Maplestory" HorizontalAlignment="Left" Margin="40,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox Visibility="Hidden" x:Name="seriesIdBox" IsEnabled="False" mah:TextBoxHelper.Watermark="시리즈ID" HorizontalAlignment="Left" Margin="98,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19"/>
+        <TextBlock Visibility="Hidden" x:Name="seriesIdLabel" Text="시리즈 ID" FontFamily="Maplestory" HorizontalAlignment="Left" Margin="40,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Button Click="Confirm_Click" Content="확인" HorizontalAlignment="Center" Margin="0,210,0,0" VerticalAlignment="Top"/>
 
     </Grid>

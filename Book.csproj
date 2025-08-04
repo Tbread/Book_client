@@ -189,12 +189,16 @@
     <Compile Include="dto\request\PasswordResetRequest.cs" />
     <Compile Include="dto\request\SignUpRequest.cs" />
     <Compile Include="dto\response\BookData.cs" />
+    <Compile Include="dto\response\Series.cs" />
     <Compile Include="enums\KDC.cs" />
     <Compile Include="NewBookWindow.xaml.cs">
       <DependentUpon>NewBookWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PasswordResetWindow.xaml.cs">
       <DependentUpon>PasswordResetWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchSeriesWindow.xaml.cs">
+      <DependentUpon>SearchSeriesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SignUpWindow.xaml.cs">
       <DependentUpon>SignUpWindow.xaml</DependentUpon>
@@ -231,6 +235,10 @@
     <Page Include="PasswordResetWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SearchSeriesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SignUpWindow.xaml">
       <SubType>Designer</SubType>
