@@ -14,16 +14,18 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Book.dto;
 using Book.dto.response;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace Book
 {
     /// <summary>
     /// SearchSeriesWindow.xaml에 대한 상호 작용 논리
     /// </summary>
-    public partial class SearchSeriesWindow : Window
+    public partial class SearchSeriesWindow
     {
 
         public ObservableCollection<Series> seriesCollection { get; set; }
+        public long seriesId {  get; set; }
 
 
         public SearchSeriesWindow()
@@ -40,6 +42,20 @@ namespace Book
                 List<Series> seriesList = uncompletedRes.data.ToObject<List<Series>>();
                 seriesCollection = new ObservableCollection<Series>(seriesList);
                 SeriesDataGrid.ItemsSource = seriesCollection;
+            }
+        }
+
+        private async void Confirm_Click(object sender, RoutedEventArgs e)
+        {
+            if (SeriesDataGrid.SelectedItem == null)
+            {
+                await this.ShowMessageAsync("알림", "시리즈를 선택해주세요.");
+                return;
+            }
+            else
+            {
+                seriesId = ((Series)SeriesDataGrid.SelectedItem).id;
+                this.Close();
             }
         }
     }

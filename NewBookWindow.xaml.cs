@@ -35,14 +35,15 @@ namespace Book
                 {
                     seriesIdBox.Visibility = Visibility.Visible;
                     seriesIdLabel.Visibility = Visibility.Visible;
-                    //todo: 시리즈검색 다이얼로그 띄우고 id리턴받아넣기
                     SearchSeriesWindow searchSeries = new SearchSeriesWindow();
                     searchSeries.ShowDialog();
+                    seriesIdBox.Text = searchSeries.seriesId.ToString();
                 }
                 else
                 {
                     seriesIdBox.Visibility = Visibility.Hidden;
                     seriesIdLabel.Visibility = Visibility.Hidden;
+                    seriesIdBox.Text = null;
                 }
             }
         }
