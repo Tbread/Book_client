@@ -55,6 +55,7 @@ namespace Book
             else
             {
                 seriesId = ((Series)SeriesDataGrid.SelectedItem).id;
+                this.DialogResult = true;
                 this.Close();
             }
         }

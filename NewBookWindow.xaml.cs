@@ -43,8 +43,15 @@ namespace Book
                     seriesIdBox.Visibility = Visibility.Visible;
                     seriesIdLabel.Visibility = Visibility.Visible;
                     SearchSeriesWindow searchSeries = new SearchSeriesWindow();
-                    searchSeries.ShowDialog();
-                    seriesIdBox.Text = searchSeries.seriesId.ToString();
+                    bool? searchSeriesResult = searchSeries.ShowDialog();
+                    if (searchSeriesResult == true)
+                    {
+                        seriesIdBox.Text = searchSeries.seriesId.ToString();
+                    }
+                    else
+                    {
+                        toggle.IsOn = false;
+                    }
                 }
                 else
                 {
