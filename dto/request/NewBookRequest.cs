@@ -15,10 +15,11 @@ namespace Book.dto.request
         public string isbn { get; set; }
         public string isni { get; set; }
         public KDC classificationNumber { get; set; }
-        public bool isSeries { get; set; }
+        public bool? isSeries { get; set; }
         public long? seriesId { get; set; }
+        public int? ea {  get; set; }
 
-        public NewBookRequest(string title, string author, string publisher, string isbn, string isni, KDC classificationNumber, bool isSeries, long? seriesId)
+        public NewBookRequest(string title, string author, string publisher, string isbn, string isni, KDC classificationNumber, bool isSeries, long? seriesId, int? ea)
         {
             this.title = title;
             this.author = author;
@@ -28,15 +29,16 @@ namespace Book.dto.request
             this.classificationNumber = classificationNumber;
             this.isSeries = isSeries;
             this.seriesId = seriesId;
+            this.ea = ea;
         }
 
         public bool isValid()
         {
-            if (isSeries && seriesId == null)
+            if (isSeries == true && seriesId == null)
             {
                 return false;
             }
-            if (!isSeries && seriesId != null)
+            if (isSeries == false && seriesId != null)
             {
                 return false;
             }

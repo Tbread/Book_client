@@ -72,11 +72,15 @@ namespace Book
 
         private void NewBook_Click(object sender, RoutedEventArgs e)
         {
-            NewBookWindow window = new NewBookWindow()
+            NewBookWindow newBookWindow = new NewBookWindow()
             {
                 Title = "새 책 추가"
             };
-            window.ShowDialog();
+            bool? newBookDialog = newBookWindow.ShowDialog();
+            if (newBookDialog == true)
+            {
+                Search_Click(null, null);
+            }
         }
     }
 }

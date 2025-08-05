@@ -10,17 +10,17 @@
         Title="NewBookWindow" Height="280" Width="400">
     <Grid>
         <TextBlock FontFamily="Maplestory" HorizontalAlignment="Left" Margin="40,23,0,0" TextWrapping="Wrap" Text="제목" VerticalAlignment="Top"/>
-        <TextBox x:Name="title" mah:TextBoxHelper.Watermark="책제목" HorizontalAlignment="Left" Margin="76,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19"/>
+        <TextBox x:Name="titleBox" mah:TextBoxHelper.Watermark="책제목" HorizontalAlignment="Left" Margin="76,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19"/>
         <TextBlock FontFamily="Maplestory" HorizontalAlignment="Left" Margin="40,54,0,0" TextWrapping="Wrap" Text="저자" VerticalAlignment="Top"/>
-        <TextBox x:Name="author" mah:TextBoxHelper.Watermark="저자명" HorizontalAlignment="Left" Margin="76,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19"/>
+        <TextBox x:Name="authorBox" mah:TextBoxHelper.Watermark="저자명" HorizontalAlignment="Left" Margin="76,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19"/>
         <TextBlock Text="출판사" FontFamily="Maplestory" HorizontalAlignment="Left" Margin="40,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="publisher" mah:TextBoxHelper.Watermark="출판사명" HorizontalAlignment="Left" Margin="76,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19"/>
+        <TextBox x:Name="publisherBox" mah:TextBoxHelper.Watermark="출판사명" HorizontalAlignment="Left" Margin="76,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19"/>
         <TextBlock Text="ISBN" FontFamily="Maplestory" HorizontalAlignment="Left" Margin="216,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="isbn" mah:TextBoxHelper.Watermark="ISBN" HorizontalAlignment="Left" Margin="250,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19"/>
+        <TextBox x:Name="isbnBox" mah:TextBoxHelper.Watermark="ISBN" HorizontalAlignment="Left" Margin="250,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19"/>
         <TextBlock Text="ISNI" FontFamily="Maplestory" HorizontalAlignment="Left" Margin="216,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox x:Name="isni" mah:TextBoxHelper.Watermark="ISNI" HorizontalAlignment="Left" Margin="250,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19"/>
+        <TextBox x:Name="isniBox" mah:TextBoxHelper.Watermark="ISNI" HorizontalAlignment="Left" Margin="250,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19"/>
         <TextBlock Text="분류" FontFamily="Maplestory" HorizontalAlignment="Left" Margin="216,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <ComboBox SelectedIndex="0" x:Name="KDC" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="250,80,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox SelectedIndex="0" x:Name="kdcBox" SelectedValuePath="Tag" HorizontalAlignment="Left" Margin="250,80,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Name="item1" Content="총류" Tag="TOTAL"/>
             <ComboBoxItem Name="item2" Content="철학" Tag="PHILOSOPHY"/>
             <ComboBoxItem Name="item3" Content="종교" Tag="RELIGION"/>
@@ -37,6 +37,8 @@
         <TextBox Visibility="Hidden" x:Name="seriesIdBox" IsEnabled="False" mah:TextBoxHelper.Watermark="시리즈ID" HorizontalAlignment="Left" Margin="98,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19"/>
         <TextBlock Visibility="Hidden" x:Name="seriesIdLabel" Text="시리즈 ID" FontFamily="Maplestory" HorizontalAlignment="Left" Margin="40,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Button Click="Confirm_Click" Content="확인" HorizontalAlignment="Center" Margin="0,210,0,0" VerticalAlignment="Top"/>
+        <TextBlock Text="권수" FontFamily="Maplestory" HorizontalAlignment="Left" Margin="216,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBox x:Name="eaBox" mah:TextBoxHelper.Watermark="추가할 책 권수" HorizontalAlignment="Left" Margin="250,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="19"/>
 
     </Grid>
 </mah:MetroWindow>
