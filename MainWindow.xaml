@@ -32,7 +32,7 @@
                         <ComboBoxItem Name="item5" Content="ISNI" Tag="ISNI"/>
                         <ComboBoxItem Name="item6" Content="시리즈명" Tag="SERIES_NAME"/>
                     </ComboBox>
-                    <DataGrid x:Name="BookDataGrid" AutoGenerateColumns="False" d:ItemsSource="{Binding BookList}" Margin="0,56,0,25">
+                    <DataGrid IsReadOnly="True" x:Name="BookDataGrid" AutoGenerateColumns="False" d:ItemsSource="{Binding BookList}" Margin="0,56,0,25">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="도서ID" Binding="{Binding bookId}"/>
                             <DataGridTextColumn Header="도서명" Binding="{Binding title}"/>

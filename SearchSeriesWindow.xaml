@@ -9,7 +9,7 @@ xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         mc:Ignorable="d"
         Title="SearchSeriesWindow" Height="300" Width="250">
     <Grid Margin="0,0,0,0">
-        <DataGrid x:Name="SeriesDataGrid" AutoGenerateColumns="False" d:ItemsSource="{Binding seriesCollection}" Margin="0,36,0,62">
+        <DataGrid IsReadOnly="True" x:Name="SeriesDataGrid" AutoGenerateColumns="False" d:ItemsSource="{Binding seriesCollection}" Margin="0,36,0,62">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="시리즈ID" Binding="{Binding id}"/>
                 <DataGridTextColumn Header="시리즈명" Binding="{Binding seriesName}"/>
