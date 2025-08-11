@@ -53,6 +53,7 @@
                     <mah:ToggleSwitch FontFamily="Maplestory" Height="30" Margin="0,26,0,0" VerticalAlignment="Top" Width="100" OffContent="모두" OnContent="시리즈만"/>
                     <mah:ToggleSwitch FontFamily="Maplestory" Height="30" Margin="120,26,0,0" VerticalAlignment="Top" Width="100" OffContent="모두" OnContent="비활성만"/>
                     <Button Click="Search_Click" FontFamily="Maplestory" Content="검색" HorizontalAlignment="Left" Margin="403,0,0,0" VerticalAlignment="Top" Width="51"/>
+                    <Button Click="NewSeries_Click" FontFamily="Maplestory" Content="시리즈 추가" HorizontalAlignment="Left" Margin="110,404,0,0" VerticalAlignment="Top" Width="105" Height="12"/>
                 </Grid>
             </TabItem>
             <TabItem Header="대출관리" FontFamily="Maplestory">

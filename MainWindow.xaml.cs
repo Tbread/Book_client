@@ -82,5 +82,13 @@ namespace Book
                 Search_Click(null, null);
             }
         }
+        private void NewSeries_Click(object sender, RoutedEventArgs e)
+        {
+            NewSeriesWindow newSeriesWindow = new NewSeriesWindow()
+            {
+                Title = "새 시리즈 추가"
+            };
+            newSeriesWindow.ShowDialog();
+        }
     }
 }
