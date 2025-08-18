@@ -21,6 +21,7 @@ namespace Book
             bool? result = login.ShowDialog();
             if (result == true)
             {
+                //todo: jwt 파싱후 role에 따라 표시할 윈도우 수정
                 MainWindow main = new MainWindow();
                 main.Closed += (s, args) => Application.Current.Shutdown();
                 main.Show();
