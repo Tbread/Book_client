@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Book.dto.response;
 
 namespace Book
 {
@@ -22,6 +24,9 @@ namespace Book
             if (result == true)
             {
                 //todo: jwt 파싱후 role에 따라 표시할 윈도우 수정
+                string token = SingletonStorage.Instance.getAccessToken();
+                string role = new JwtSecurityTokenHandler().ReadJwtToken(token).Claims.FirstOrDefault(c => c.Type == "role")?.Value;
+                //여기서부터 role에따른 분기윈도우 출력
                 MainWindow main = new MainWindow();
                 main.Closed += (s, args) => Application.Current.Shutdown();
                 main.Show();

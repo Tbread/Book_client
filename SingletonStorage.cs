@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using Book.dto.response;
@@ -39,6 +40,30 @@ namespace Book
                     this.tokenContainer.Add(tokenPackage.accessToken);
                 }
             }
+        }
+
+        public string getAccessToken()
+        {
+            foreach (Cookie cookie in this.tokenContainer.GetCookies(new Uri("http://127.0.0.1:8080")))
+            {
+                if (cookie.Name.Equals("Access-Token"))
+                {
+                    return cookie.Value;
+                }
+            }
+            return null;
+        }
+
+        public string getRefreshToken()
+        {
+            foreach (Cookie cookie in this.tokenContainer.GetCookies(new Uri("http://127.0.0.1:8080")))
+            {
+                if (cookie.Name.Equals("Refresh-Token"))
+                {
+                    return cookie.Value;
+                }
+            }
+            return null;
         }
     }
 }
